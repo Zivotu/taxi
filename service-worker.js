@@ -1,8 +1,8 @@
 const CACHE_NAME = 'taxilog-cache-v1.2'; // Promijenite verziju ako ažurirate datoteke
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/index.tsx', // Preglednik će zapravo keširati JS koji generira esm.sh za index.tsx
+  '/taxi/',
+  '/taxi/index.html',
+  '/taxi/index.tsx', // Preglednik će zapravo keširati JS koji generira esm.sh za index.tsx
   // CDN resursi - važno je da se i oni keširaju
   'https://cdn.tailwindcss.com',
   'https://esm.sh/react@^19.1.0',
@@ -13,7 +13,7 @@ const urlsToCache = [
   // npr. '/icons/icon-192x192.png', itd.
   // Za sada, nećemo eksplicitno dodavati sve ikone da lista ne bude preduga,
   // ali za potpunu offline funkcionalnost ikona, trebalo bi ih dodati.
-  '/manifest.json'
+  '/taxi/manifest.json'
 ];
 
 // Pre-cache React/ReactDOM/Recharts dependencies that esm.sh might resolve to
@@ -110,7 +110,7 @@ self.addEventListener('fetch', event => {
     event.respondWith(
       fetch(event.request)
         .catch(() => caches.match(event.request)) // Ako mreža ne uspije, vrati iz keša
-        .then(response => response || caches.match('/index.html')) // Ako ni to ne uspije, vrati index.html
+        .then(response => response || caches.match('/taxi/index.html')) // Ako ni to ne uspije, vrati index.html
     );
     return;
   }
