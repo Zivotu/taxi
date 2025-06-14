@@ -1,0 +1,5 @@
+{
+  "name": "TaxiLog",
+  "description": "A web application for taxi drivers to log daily revenue, kilometers, fuel consumption, earnings, expenses, work hours, and number of rides. It provides analysis of this data by day, week, and month through numerical summaries and charts.",
+  "requestFramePermissions": []
+}
